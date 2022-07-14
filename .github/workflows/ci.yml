@@ -1,0 +1,34 @@
+name: CI
+on:
+  push:
+    # branches:
+    #   - 'main'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  github-snake:
+    name: GitHub Snake
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: Platane/snk@v2
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+      - name: Push auto-fixed files
+        # if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          if (git diff --shortstat); then \
+            git add .; \
+            git commit -m "📊 Update github-snake by github-actions"; \
+            git push origin ${GITHUB_REF_NAME}; \
+          fi
