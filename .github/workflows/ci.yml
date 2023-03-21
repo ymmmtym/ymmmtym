@@ -31,7 +31,7 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if (git diff --shortstat ${{ env.GITHUB_SNAKE_OUTPUT_DIR }} | grep '[0-9]'); then \
-            git add .; \
+            git add -A; \
             git commit -m "📊 Update github-snake by github-actions"; \
             git push origin ${GITHUB_REF_NAME}; \
           fi
