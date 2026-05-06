@@ -9,9 +9,7 @@ on:
 jobs:
   opencode:
     runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'issue_comment' || github.event_name == 'pull_request_review_comment') &&
-      (contains(github.event.comment.body, '/oc') || contains(github.event.comment.body, '/opencode'))
+    if: github.event_name == 'issue_comment' || github.event_name == 'pull_request_review_comment'
     permissions:
       id-token: write
       contents: read
