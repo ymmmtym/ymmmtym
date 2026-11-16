@@ -1,0 +1,45 @@
+name: Repository topics
+
+# Repository topics are a repository-settings change, not a file change, so
+# merging this workflow does not apply them by itself. After the TOPICS_TOKEN
+# secret is configured, run this workflow once from the Actions tab.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Keep in sync with the topics requested in issue #17.
+  REPOSITORY_TOPICS: |
+    github-profile
+    profile-readme
+    readme-stats
+    github-snake
+
+jobs:
+  apply:
+    name: Apply repository topics
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply topics
+        env:
+          # Fine-grained token with "Administration: write" (or a classic token
+          # with the "repo" scope). GITHUB_TOKEN cannot be used: "administration"
+          # is not a grantable workflow permission.
+          GH_TOKEN: ${{ secrets.TOPICS_TOKEN }}
+        run: |
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::error::Set a repository secret named TOPICS_TOKEN (Administration: write, or classic repo scope), then re-run."
+            exit 1
+          fi
+
+          payload="$(printf '%s\n' "${REPOSITORY_TOPICS}" \
+            | grep -v '^[[:space:]]*$' \
+            | jq -R . | jq -s '{names: .}')"
+          echo "Requesting topics: ${payload}"
+
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/topics" --input - <<< "${payload}"
+
+          echo "Topics now set:"
+          gh api "repos/${GITHUB_REPOSITORY}/topics" --jq '.names[]'
