@@ -7,6 +7,9 @@ on:
     - cron: '0 9 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   GITHUB_SNAKE_OUTPUT_DIR: "dist"
 
@@ -26,12 +29,13 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             ${{ env.GITHUB_SNAKE_OUTPUT_DIR }}/github-snake.svg
+            ${{ env.GITHUB_SNAKE_OUTPUT_DIR }}/github-snake-dark.svg?palette=github-dark
       - name: Push auto-fixed files
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          if (git diff --shortstat ${{ env.GITHUB_SNAKE_OUTPUT_DIR }} | grep '[0-9]'); then \
-            git add -A; \
+          if (git diff --shortstat "${GITHUB_SNAKE_OUTPUT_DIR}" | grep '[0-9]'); then \
+            git add "${GITHUB_SNAKE_OUTPUT_DIR}"; \
             git commit -m "📊 Update github-snake by github-actions"; \
-            git push origin ${GITHUB_REF_NAME}; \
+            git push origin "${GITHUB_REF_NAME}"; \
           fi
