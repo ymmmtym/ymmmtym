@@ -2,7 +2,7 @@
 
 GitHub profile repository. No build, test, or lint tooling.
 
-- CI generates GitHub Snake animation to `dist/github-snake.svg`
+- CI generates GitHub Snake animation to `dist/github-snake.svg` (light) and `dist/github-snake-dark.svg` (dark); README shows each with `#gh-light-mode-only` / `#gh-dark-mode-only`
 - Automated via `.github/workflows/ci.yml` (daily schedule + push to main)
 - No application code, dependencies, or traditional dev workflow
 - Action dependencies are pinned in `.github/workflows/actions.lock` (see `.github/ACTIONS_LOCK.md`); run `gh actions-lock --no-narrow` after adding/editing a workflow

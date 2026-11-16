@@ -1,8 +1,9 @@
 # ymmmtym
 
-[![CI](https://github.com/ymmmtym/ymmmtym/actions/workflows/ci.yml/badge.svg)](https://github.com/ymmmtym/ymmmtym/actions/workflows/ci.yml) [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ymmmtym/my-stack)
+[![CI](https://github.com/ymmmtym/ymmmtym/actions/workflows/ci.yml/badge.svg)](https://github.com/ymmmtym/ymmmtym/actions/workflows/ci.yml) [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ymmmtym/my-stack)
 
 ![GitHub Snake Light](dist/github-snake.svg#gh-light-mode-only)
+![GitHub Snake Dark](dist/github-snake-dark.svg#gh-dark-mode-only)
 
 ![ymmmtym's GitHub stats](https://github-stats-extended.vercel.app/api?username=ymmmtym&count_private=true&show_icons=true&theme=cobalt)
 
