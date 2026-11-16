@@ -6,6 +6,7 @@ workflows:
     '.github/workflows/ci.yml':
         - 'actions/checkout@v7'
         - 'platane/snk@v3'
+    '.github/workflows/repository-topics.yml': []
     '.github/workflows/verify-actions-lock.yml':
         - 'actions/checkout@v7.0.1'
 dependencies:
