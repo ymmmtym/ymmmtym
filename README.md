@@ -5,9 +5,12 @@
 ![GitHub Snake Light](dist/github-snake.svg#gh-light-mode-only)
 ![GitHub Snake Dark](dist/github-snake-dark.svg#gh-dark-mode-only)
 
-![ymmmtym's GitHub stats](https://github-stats-extended.vercel.app/api?username=ymmmtym&count_private=true&show_icons=true&theme=cobalt)
+![ymmmtym's GitHub stats](https://github-stats-extended.vercel.app/api?username=ymmmtym&count_private=true&show_icons=true&theme=default#gh-light-mode-only)
+![ymmmtym's GitHub stats](https://github-stats-extended.vercel.app/api?username=ymmmtym&count_private=true&show_icons=true&theme=cobalt#gh-dark-mode-only)
 
-[![Readme Card](https://github-stats-extended.vercel.app/api/pin/?username=ymmmtym&repo=ymmmtym.github.io&show_owner=true)](https://github.com/ymmmtym/ymmmtym.github.io)
+[![Readme Card](https://github-stats-extended.vercel.app/api/pin/?username=ymmmtym&repo=ymmmtym.github.io&show_owner=true&theme=default#gh-light-mode-only)](https://github.com/ymmmtym/ymmmtym.github.io)
+[![Readme Card](https://github-stats-extended.vercel.app/api/pin/?username=ymmmtym&repo=ymmmtym.github.io&show_owner=true&theme=cobalt#gh-dark-mode-only)](https://github.com/ymmmtym/ymmmtym.github.io)
 
-![Top Langs](https://github-stats-extended.vercel.app/api/top-langs/?username=ymmmtym)
+![Top Langs](https://github-stats-extended.vercel.app/api/top-langs/?username=ymmmtym&theme=default#gh-light-mode-only)
+![Top Langs](https://github-stats-extended.vercel.app/api/top-langs/?username=ymmmtym&theme=cobalt#gh-dark-mode-only)
 
